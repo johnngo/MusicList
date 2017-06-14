@@ -9523,15 +9523,22 @@ module.exports = getIteratorFn;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
 
-function testComponent() {
+function testComponent(props) {
+  const { headline, count, showCount } = props;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
     null,
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'h1',
       null,
-      ' React test testComponent'
-    )
+      ' ',
+      headline
+    ),
+    showCount ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'p',
+      null,
+      count
+    ) : null
   );
 }
 
@@ -9560,7 +9567,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__testcomponent__["a" /* default */], null), document.querySelector('#react-app'));
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__testcomponent__["a" /* default */], { headline: 'Test Headline', count: 1234, showCount: true }), document.querySelector('#react-app'));
 
 /***/ }),
 /* 84 */
