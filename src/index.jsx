@@ -1,8 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
-import TestComponent from './testcomponent';
+import { AppContainer } from 'react-hot-loader';
+import Template from './components/template';
 
-render(
-  <TestComponent headline="Test Headline" count={1234} showCount />,
-  document.querySelector('#react-app'),
-);
+
+const renderApp = (Component) => {
+  render(
+    <AppContainer>
+      <Component headline="Test Headline" count={12345454545} showCount />
+    </AppContainer>,
+    document.querySelector('#react-app'),
+  );
+};
+
+renderApp(Template);
+
+if (module && module.hot) {
+  module.hot.accept('./components/template', () => {
+    renderApp(Template);
+  });
+}
+
+
